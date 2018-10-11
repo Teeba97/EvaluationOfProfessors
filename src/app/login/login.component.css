@@ -1,0 +1,68 @@
+body{
+    overflow: hidden;
+}
+.continer{
+   
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  align-content: center;
+  overflow: hidden;
+  
+}
+.form-continer{
+    
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+    border-color: rgb(48, 129, 129);
+   width: 33vw;
+   /* height: 50vh; */
+   padding: 40px;
+   border-radius: 30px;
+   background-color: rgb(255, 255, 255);
+
+}
+.continer .page-title{
+   align-self: flex-start;
+   vertical-align: top;
+}
+.form-continer .item{
+    margin: 0 0 10px 0; 
+    border-radius: 30px;
+   
+}
+.form-continer .bt-item{
+    text-align:left;
+    margin:10px 0 0 0;
+    
+}
+label{
+    color:rgb(0, 0, 0);
+    font-weight: 900;
+    font-size: initial
+}
+button{
+    width:10vw ;
+    
+}
+.form-continer .text{
+    text-align:center;
+}
+h1{
+    text-align: right;
+}
+img{
+    
+    position: absolute;
+    top: -110%;
+    left: -10%;
+    z-index: -1;
+    transform: rotate(-10deg);
+    width: 125%
+    
+}
+.footer{
+    
+}
