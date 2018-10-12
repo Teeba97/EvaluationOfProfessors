@@ -1,6 +1,7 @@
 body{
     overflow: hidden;
 }
+/* main continer */
 .continer{
    
     width: 100vw;
@@ -13,21 +14,28 @@ body{
   overflow: hidden;
   
 }
+/* Title */
+.continer .page-title{
+    align-self: flex-start;
+    vertical-align: top;
+    color: aliceblue;
+ }
+ 
+ .continer .page-title h1{
+    text-align: right;
+}
+/* form continer */
 .form-continer{
     
     box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
     border-color: rgb(48, 129, 129);
    width: 33vw;
-   /* height: 50vh; */
    padding: 40px;
    border-radius: 30px;
    background-color: rgb(255, 255, 255);
 
 }
-.continer .page-title{
-   align-self: flex-start;
-   vertical-align: top;
-}
+
 .form-continer .item{
     margin: 0 0 10px 0; 
     border-radius: 30px;
@@ -38,21 +46,13 @@ body{
     margin:10px 0 0 0;
     
 }
-label{
-    color:rgb(0, 0, 0);
-    font-weight: 900;
-    font-size: initial
-}
-button{
+
+.form-continer button{
     width:10vw ;
     
 }
-.form-continer .text{
-    text-align:center;
-}
-h1{
-    text-align: right;
-}
+
+
 img{
     
     position: absolute;
@@ -61,8 +61,5 @@ img{
     z-index: -1;
     transform: rotate(-10deg);
     width: 125%
-    
-}
-.footer{
     
 }
