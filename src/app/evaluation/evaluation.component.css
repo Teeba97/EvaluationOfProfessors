@@ -1,3 +1,6 @@
+* {
+    font-family: 'Segoe UI';
+}
 .continer{
    
     width: 100vw;
@@ -12,15 +15,13 @@
 }
 .table-continer{
     
-    border-color: rgb(0, 0, 0);
+ 
     width: 55vw;
-    /* padding: 40px; */
-    border-radius: 30px;
-    background-color: rgb(255, 255, 255);
     margin: 10px 0 0 0;
 }
 .table-continer table{
-    border: 1px solid black;
+   
+    
 }
  table thead tr th{
  text-align: center;

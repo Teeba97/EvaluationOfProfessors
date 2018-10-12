@@ -1,6 +1,9 @@
 body{
     overflow: hidden;
 }
+* {
+    font-family: 'Segoe UI';
+}
 /* main continer */
 .continer{
    
