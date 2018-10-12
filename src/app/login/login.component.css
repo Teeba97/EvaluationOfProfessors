@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 body {
+=======
+* {
+    font-family: 'Segoe UI';
+}
+body{
+>>>>>>> 0dca21f89a6f1a159d406a0bad5802a7d79d300b
     overflow: hidden;
 }
 
@@ -16,6 +23,7 @@ body {
 }
 
 /* Title */
+<<<<<<< HEAD
 
 .continer .page-title {
     align-self: flex-start;
@@ -23,6 +31,17 @@ body {
 }
 
 .continer .page-title h1 {
+=======
+.continer .page-title{
+    color: aliceblue;
+    position: absolute;
+    right: 50px;
+      top: 50px;
+    
+ }
+
+ .continer .page-title h1{
+>>>>>>> 0dca21f89a6f1a159d406a0bad5802a7d79d300b
     text-align: right;
 }
 
@@ -58,4 +77,13 @@ img {
     z-index: -1;
     transform: rotate(-10deg);
     width: 125%
+<<<<<<< HEAD
+=======
+    
+}
+/* footer */
+.continer .footer{
+    position: absolute;
+    bottom: 50px;
+>>>>>>> 0dca21f89a6f1a159d406a0bad5802a7d79d300b
 }

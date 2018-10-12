@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { LoginOfprofessorsComponent } from './login-ofprofessors/login-ofprofessors.component';
+import { AdminComponent } from './admin/admin.component';
+import { EvaluationComponent } from './evaluation/evaluation.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    LoginOfprofessorsComponent
+    AdminComponent,
+    EvaluationComponent
    
   ],
   imports: [
