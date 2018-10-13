@@ -1,11 +1,9 @@
-<img src="../../assets/img/Symbol 1 – 2.svg">
 
 <div class="continer" dir="rtl">
 
   <!-- the title  -->
   <div class="page-title">
     <h1>| نظام تقييم الاساتذة - دخول الطلبة</h1>
-
   </div>
 
   <!-- the form -->
@@ -14,40 +12,45 @@
     <form class="ui form ">
       <div class=" item">
 
-
-        <select class="ui search dropdown">
-          <option value="">حدد قسمك</option>
-          <option value="AL">علوم الحياة</option>
-          <option value="AK">علوم الحاسبات</option>
-          <option value="AZ">علوم رياضيات</option>
-          <option value="AR">علوم الفيزياء</option>
-          <option value="IA">جيولوجيا</option>
-          <option value="IA">تقانة احيائية</option>
-        </select>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">القـــسم</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option value="AL">علوم الحياة</option>
+            <option value="AK">علوم الحاسبات</option>
+            <option value="AZ">علوم رياضيات</option>
+            <option value="AR">علوم الفيزياء</option>
+            <option value="IA">جيولوجيا</option>
+            <option value="IA">تقانة احيائية</option>
+          </select>
+        </div>
 
       </div>
 
 
       <div class="item">
 
-
-        <select class="ui search dropdown">
-          <option value="">حدد المرحلة</option>
-          <option value="AL">الاولى</option>
-          <option value="AK">الثانية</option>
-          <option value="AZ">الثالثة</option>
-          <option value="AR">الرابعة</option>
-        </select>
-
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">المرحلة</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option value="AL">الاولى</option>
+            <option value="AK">الثانية</option>
+            <option value="AZ">الثالثة</option>
+            <option value="AR">الرابعة</option>
+          </select>
+        </div>
 
       </div>
       
       <div class="item">
-        <input name="last-name" placeholder="كلمة السر " type="password">
+        <input class="form-control" type="text" placeholder="كلمة السر">
       </div>
 
       <div class="bt-item">
-        <button class="ui button" type="submit">تسجيل الدخول</button>
+        <button class="btn btn-primary pull-left" >تسجيل الدخول</button>
       </div>
 
     </form>
