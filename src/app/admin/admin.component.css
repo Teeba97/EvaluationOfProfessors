@@ -6,6 +6,25 @@ body {
     font-family: 'Segoe UI';
 }
 
+.bg-continer {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bac-color {
+    width: 200vw;
+    content: "";
+    min-height: 100%;
+    background-color: #201A26;
+    height: 200vh;
+    transform: rotate(45deg);
+}
+
 /* main continer */
 
 .continer {
@@ -30,6 +49,7 @@ body {
 
 .continer .page-title h1 {
     text-align: right;
+    font-size: 2vw;
 }
 
 /* form continer */
@@ -38,6 +58,7 @@ p {
     color: #545454;
     font-size: 14px;
 }
+
 .form-continer {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
     border-color: rgb(48, 129, 129);
@@ -68,11 +89,4 @@ img {
     z-index: -1;
     transform: rotate(-10deg);
     width: 125%
-}
-
-/* footer */
-
-.continer .footer {
-    position: absolute;
-    bottom: 50px;
 }
