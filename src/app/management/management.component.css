@@ -1,4 +1,4 @@
-
+/* navbar */
 .nav-bar{
     background-color: rgb(0, 0, 0) !important;
   margin: 20px;
@@ -7,6 +7,7 @@
 a{
     color: azure !important;
 }
+/* select box */
 .drop-down{
     width: 100vw;
     display: flex;
@@ -18,6 +19,7 @@ a{
     width: 45vw;
     margin: 0 0 0 10px;
 }
+/* main box */
 .main-box{
 
     display: flex;
