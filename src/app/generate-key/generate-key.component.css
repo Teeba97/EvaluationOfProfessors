@@ -1,0 +1,31 @@
+/* navbar */
+.nav-bar{
+    background-color: rgb(0, 0, 0) !important;
+  margin: 20px;
+  border-radius: 20px;
+}
+.nav-bar a{
+    color: azure !important;
+    font-size: large;
+}
+/* select box */
+.drop-down{
+    width: 100vw;
+    display: flex;
+    border-radius: 30px;
+    padding: 20px;
+    
+}
+.select-1{
+    width: 45vw;
+    margin: 0 0 0 10px;
+}
+.select-2{
+    width: 30vw;
+    margin: 0 0 0 10px;
+}
+.tex{
+    margin: 20px;
+    font-size: large;
+    color: rgb(133, 133, 133);
+}
