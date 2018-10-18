@@ -13,10 +13,11 @@ import { TeachingStaffComponent } from './teaching-staff/teaching-staff.componen
 const routes:Routes = [
   
   { path :'' , redirectTo:'login' ,pathMatch:'full'},
-  { path :'login' ,component:LoginComponent},
-  { path :'admin' ,component:AdminComponent },
-  { path :'evalution' ,component:EvaluationComponent },
-  { path :'generateKey' ,component:GenerateKeyComponent }
+  { path :'login' ,component: LoginComponent},
+  { path :'admin' ,component: AdminComponent },
+  { path :'evalution' ,component: EvaluationComponent },
+  { path :'generateKey' ,component: GenerateKeyComponent },
+  { path :'management' ,component: ManagementComponent }
 ]
 
 
