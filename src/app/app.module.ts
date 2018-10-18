@@ -6,15 +6,18 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { EvaluationComponent } from './evaluation/evaluation.component';
 import { ManagementComponent } from './management/management.component';
-// import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { GenerateKeyComponent } from './generate-key/generate-key.component';
+import { TeachingStaffComponent } from './teaching-staff/teaching-staff.component';
 
-// const routes:Routes = [
+const routes:Routes = [
   
-//   { path :'' , redirectTo:'home' ,pathMatch:'full'},
-//   { path :'home' ,component:LoginComponent},
-//   { path :'home' ,component:AdminComponent }
-// ]
+  { path :'' , redirectTo:'login' ,pathMatch:'full'},
+  { path :'login' ,component:LoginComponent},
+  { path :'admin' ,component:AdminComponent },
+  { path :'evalution' ,component:EvaluationComponent },
+  { path :'generateKey' ,component:GenerateKeyComponent }
+]
 
 
 @NgModule({
@@ -24,12 +27,13 @@ import { GenerateKeyComponent } from './generate-key/generate-key.component';
     AdminComponent,
     EvaluationComponent,
     ManagementComponent,
-    GenerateKeyComponent
+    GenerateKeyComponent,
+    TeachingStaffComponent
    
   ],
   imports: [
     BrowserModule,
-    // RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
