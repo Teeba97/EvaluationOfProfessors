@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { EvaluationComponent } from './evaluation/evaluation.component';
+import { ManagementComponent } from './management/management.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { EvaluationComponent } from './evaluation/evaluation.component';
     AppComponent,
     LoginComponent,
     AdminComponent,
-    EvaluationComponent
+    EvaluationComponent,
+    ManagementComponent
    
   ],
   imports: [
