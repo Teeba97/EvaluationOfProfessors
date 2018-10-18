@@ -2,3 +2,23 @@
 * {
     font-family: 'Segoe UI';
 }
+
+
+.bg-continer {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bac-color {
+    width: 200vw;
+    content: "";
+    min-height: 100%;
+    background-color: rgb(48, 66, 88);
+    height: 200vh;
+    transform: rotate(45deg);
+}

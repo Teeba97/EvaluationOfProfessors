@@ -7,24 +7,6 @@ body{
     max-width: 100vw;
 }
 
-.bg-continer {
-    width: 100vw;
-    height: 100vh;
-    max-width: 100vw;
-    max-height: 100vh;
-    position: absolute;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.bac-color {
-    width: 200vw;
-    content: "";
-    min-height: 100%;
-    background-color: #201A26;
-    height: 200vh;
-    transform: rotate(45deg);
-}
 
 /* main continer */
 
