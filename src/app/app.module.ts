@@ -11,7 +11,6 @@ import { GenerateKeyComponent } from './generate-key/generate-key.component';
 import { TeachingStaffComponent } from './teaching-staff/teaching-staff.component';
 
 const routes:Routes = [
-  
   { path :'' , redirectTo:'login' ,pathMatch:'full'},
   { path :'login' ,component: LoginComponent},
   { path :'admin' ,component: AdminComponent },
