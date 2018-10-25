@@ -42,3 +42,7 @@ td, th {
 .continer .page-title h1 {
     text-align: right;
 }
+
+textarea {
+    margin: 20px 0 10px 0;
+}
