@@ -20,8 +20,8 @@ export class LecturersService {
     return this.http.get<Ilecturer[]>( this.getUrl );
   }
 
-  delete( item ) {
-    return this.http.post( this.deleteUrl , item );
+  delete( lecturer ) {
+    return this.http.post( this.deleteUrl , lecturer );
   }
 
   add( lecturer ) {

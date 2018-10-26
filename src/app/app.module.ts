@@ -21,6 +21,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 // service
 import { LecturersService } from './services/lecturers.service';
+import { QuestionsService } from './services/questions.service';
+
+// angular material 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatIconModule , MatSnackBarModule , MatTooltipModule ,  } from '@angular/material';
 
 
 // Routes
@@ -53,9 +58,17 @@ const routes:Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatSnackBarModule,
+    MatTooltipModule
+
   ],
-  providers: [LecturersService],
+  providers: [
+    LecturersService,
+    QuestionsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

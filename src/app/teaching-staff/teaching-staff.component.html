@@ -5,7 +5,7 @@
 
 
 
-    <select id="departments" class="custom-select select-1" (change)="selectDepartment( $event )" >
+    <select  class="custom-select select-1" (change)="selectDepartment( $event )" >
         <option value="0">حدد القسم         </option>
         <option value="1"> بايولوجي        </option>
         <option value="2"> الحاسبات        </option>
@@ -15,7 +15,7 @@
         <option value="6"> تقانة احيائية   </option>
     </select>
 
-    <select  id="stages" #stages class="custom-select select-1" (change)="selectstage( $event )" >
+    <select  class="custom-select select-1" (change)="selectstage( $event )" >
         <option value="0">  حدد المرحلة     </option>
         <option value="1">  الاولى           </option>
         <option value="2">  الثانية         </option>
@@ -30,8 +30,12 @@
         <input (change)="selectName( $event )" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
     </div>
 
-    <a class="my-btn btn btn-primary select-2" role="button" style="width: fit-content" 
-     (click)="addLecturers()"> اضافة </a>
+    <a  class="my-btn btn btn-primary select-2" 
+        role="button" 
+        style="width: fit-content" 
+        mat-raised-button
+        matTooltip="تأكد من المعلومات قبل الاضافة"
+        (click)="addLecturers()"> اضافة </a>
 </div>
 
 <!-- items  -->
@@ -39,12 +43,17 @@
 
     <!-- information dispaly hear -->
     <div class="name">
-        <h3> {{ item.name }} </h3>
+    
+         <h3> {{ item.name }} </h3> 
     </div>
 
     <div class="box-operation">
-        <button class="btn-delete btn" (click)="deleteLecturer(item)">
-            <i class="i-delete fas fa-trash-alt fa-1x"></i>
+        <button 
+            mat-raised-button
+            matTooltip="حذف هذا العنصر"
+            matTooltipPosition="right"
+            class="btn-delete btn" (click)="deleteLecturer(item)">
+            <i class="i-delete fas fa-trash-alt fa-1x"></i> <!-- icon -->
         </button>
     </div>
 

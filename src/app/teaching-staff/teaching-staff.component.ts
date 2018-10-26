@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LecturersService } from '../services/lecturers.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-teaching-staff',
@@ -16,7 +17,8 @@ export class TeachingStaffComponent implements OnInit {
     st_id: 0
   }
 
-  constructor(public lecturersService: LecturersService) {
+  constructor(public lecturersService: LecturersService,
+              public snackBar:MatSnackBar) {
     
   }
 
@@ -43,7 +45,10 @@ export class TeachingStaffComponent implements OnInit {
       .subscribe ( 
         data => {
           if (data["success"]) {
-            this.getLecturers()
+            this.snackBar.open("تم حذف العنصر بنجاح" , "تم" , {
+              duration: 2000,
+            });
+            this.getLecturers();
           } else {
             window.alert("An error to delete this item ...")
           }
@@ -68,10 +73,14 @@ export class TeachingStaffComponent implements OnInit {
         )
 
     } else {
-      window.alert("من فضلك تأكد من انك قد قمت بأختيار القسم و المرحلة و ادخلت اسم الاستاذ بشكل صحيح")
+        this.snackBar.open( "من فضلك تأكد من انك قد قمت بأختيار القسم و المرحلة و ادخلت اسم الاستاذ" , "تم" , {
+          duration: 2000,
+        });
     }
   }
 
+
+  // get slected department & stage & name data from html page
   selectDepartment( event ) {
     this.lecturer.dep_id =  event.target.value
   }
@@ -83,4 +92,6 @@ export class TeachingStaffComponent implements OnInit {
   selectName( event ) {
     this.lecturer.name =  event.target.value
   }
+
+
 }

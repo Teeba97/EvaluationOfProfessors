@@ -67,7 +67,9 @@ h3 {
 .btn-delete {
     background-color: transparent !important;
 }
+
 .i-delete {
-    color: #706fd3;
-    font-size: 20px;
+    color: #E23234;
+    font-size: 25px;
+    margin: 0;
 }
