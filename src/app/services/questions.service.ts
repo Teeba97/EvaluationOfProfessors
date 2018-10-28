@@ -20,12 +20,12 @@ export class QuestionsService {
     return this.http.get<IQuestion[]>( this.getUrl );
   }
 
-  delete( question ) {
-    return this.http.post( this.deleteUrl , question );
+  delete( item ) {
+    return this.http.post( this.deleteUrl , item );
   }
 
-  add( question ) {
-    return this.http.post( this.addUrl , question );
+  add( item ) {
+    return this.http.post( this.addUrl , item );
   }
 
 }

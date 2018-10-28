@@ -11,8 +11,10 @@ export class QuestionsComponent implements OnInit {
 
   public questions = [] ;
 
-  
-  question: ''
+  data = { 
+    question: ''
+  }
+
 
 
   constructor(
@@ -56,23 +58,34 @@ export class QuestionsComponent implements OnInit {
 
   // add
   addQuestion() {
-    if (this.question != '') {
-      console.log(this.question)
-      this.questionsService.add( this.question )
+
+    // check if the qusetion feild empty
+    if (this.data.question != '') {
+
+      console.log(this.data)
+      this.questionsService.add( this.data )
         .subscribe (
           data => {
+
+            // if data geted from php page == seccess
             if (data["success"]) {
               this.snackBar.open("تم اضافة العنصر بنجاح" , "تم" , {
                 duration: 2000,
               });
+
+              // get the new items form database ...
               this.getQuestions();
-            } else {
+            } 
+            
+            // if data geted from php page != seccess
+            else {
               this.snackBar.open( "حدث خطأ في اضافة البيانات" , "تم" , {
                 duration: 3000,
               });
             }
           }
         )
+    // else if the user not enter the equstion in the input feild
     } else {
       this.snackBar.open( "قم بكتابة السؤال اولاً" , "تم" , {
         duration: 2000,
@@ -83,7 +96,7 @@ export class QuestionsComponent implements OnInit {
 
   // get data from html page
   selectQuestion( event ) {
-    this.question =  event.target.value
+    this.data.question =  event.target.value
   }
 
 }
