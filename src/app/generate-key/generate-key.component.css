@@ -1,31 +1,66 @@
-/* navbar */
-.nav-bar{
-    background-color: rgb(0, 0, 0) !important;
-  margin: 20px;
-  border-radius: 20px;
+
+
+.top-text {
+    margin-right: 20px;
 }
-.nav-bar a{
-    color: azure !important;
-    font-size: large;
-}
+
 /* select box */
-.drop-down{
-    width: 100vw;
+
+.drop-down {
     display: flex;
     border-radius: 30px;
-    padding: 20px;
-    
-}
-.select-1{
-    width: 45vw;
-    margin: 0 0 0 10px;
-}
-.select-2{
-    width: 30vw;
-    margin: 0 0 0 10px;
-}
-.tex{
     margin: 20px;
-    font-size: large;
-    color: rgb(133, 133, 133);
+}
+
+.select-1 {
+    width: 30%;
+    margin-left: 20px;
+}
+
+.my-btn {
+    background-color: #706fd3
+}
+
+/* main box */
+
+.box-item {
+    display: flex;
+    border-radius: 7px;
+    margin: 20px;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    background-color: #f2f2f1;
+    color: #505050;
+    height: max-content;
+}
+
+
+.progress {
+    height: fit-content;
+    width: 30%;
+    background-color: #f2f2f1;
+    display: flex;
+    flex-direction: column;
+}
+
+.progress span {
+    display: block;
+    background-color: #2ecc71;
+    color:#FFF;
+    line-height: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.progress  P {
+    margin: 5px 0 0 0;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 16px;
+    margin: 0;
 }

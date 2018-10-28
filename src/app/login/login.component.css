@@ -26,7 +26,10 @@ body{
     position: absolute;
     right: 50px;
     top: 50px;
-    
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center; 
  }
 
  .continer .page-title h1{
@@ -53,6 +56,7 @@ body{
 .form-continer .bt-item {
     text-align: left;
     margin: 10px 0 0 0;
+    
 }
 
 .form-continer button {
@@ -60,19 +64,20 @@ body{
 }
 
 img {
-    position: absolute;
-    top: -110%;
-    left: -10%;
-    z-index: -1;
-    transform: rotate(-10deg);
-    width: 125%
-    
+   width: 150px;
+   height: 150px;
+
 }
+
 /* footer */
-.footer{
+.footer {
     width: 100%;
     position: absolute;
     bottom: 50px;
     text-align: center;
     color: #FFFFFF;
+}
+
+a {
+    color: #FFF;
 }

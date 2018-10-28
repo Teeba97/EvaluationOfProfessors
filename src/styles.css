@@ -18,7 +18,10 @@
     width: 200vw;
     content: "";
     min-height: 100%;
-    background-color: rgb(48, 66, 88);
+    background-color: #201A26;
     height: 200vh;
     transform: rotate(45deg);
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

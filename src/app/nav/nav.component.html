@@ -1,0 +1,33 @@
+<div class="navbar navbar-expand-lg navbar-light  nav-bar">
+
+  <a class="navbar-brand" [routerLink]="['/management']" routerLinkActive="router-link-active">الرئيسية</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+
+        <ul class="navbar-nav">
+
+            <li class="nav-item active">
+                <a class="navbar-brand" [routerLink]="['/teachers']" routerLinkActive="router-link-active" >الكادر التدريسي</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="navbar-brand" [routerLink]="['/generateKey']" routerLinkActive="router-link-active">توليد الرموز</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="navbar-brand" [routerLink]="['/questions']" routerLinkActive="router-link-active"> ادارة الاسئلة</a>
+            </li>
+
+        </ul>
+
+        <ul class="navbar-nav">
+            <li class="signOut nav-item active ">
+                <a class="navbar-brand" href="#">تسجيل الخروج</a>
+            </li>
+        </ul>
+  </div>
+</div>
