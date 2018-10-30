@@ -25,12 +25,16 @@ export class GenerateKeyComponent implements OnInit {
     var i = 0
 
     while(i<nNumber){
-    
-      const random = Math.floor(Math.random() * (999999 - 100000)) + 100000;
-      i++;
-      console.log(random)
+       
+      const random = Math.floor(Math.random() * (99999999 - 10000000)) + 10000000;
+      if(this.randomKey.indexOf(random)==-1){
+        this.randomKey.push(random)
+        i++;
+      }
+     
+      
     }
-    
+    console.log(this.randomKey)
   }
 
 }
