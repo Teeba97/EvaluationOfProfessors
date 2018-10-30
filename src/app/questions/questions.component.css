@@ -16,8 +16,11 @@
 }
 
 .my-btn {
-    background-color: #706fd3
+    background-color: #706fd3;
+    color: #FFF;
 }
+
+/* main box */
 
 /* main box */
 
@@ -25,7 +28,7 @@
     display: flex;
     border-radius: 7px;
     margin: 20px;
-    padding: 10px;
+    padding-right: 15px;
     justify-content: space-between;
     align-items: center;
     align-content: center;
@@ -61,4 +64,21 @@
 h3 {
     font-size: 16px;
     margin: 0;
+}
+
+.btn-delete {
+    background-color: transparent !important;
+    padding: 2.5px !important;
+    margin: 10px 5px !important;
+}
+
+.i-delete {
+    color: #E23234;
+    font-size: 25px;
+}
+
+.i-edit {
+    color: rgb(48, 192, 84);
+    font-size: 25px;
+    margin-left: 10px;
 }
