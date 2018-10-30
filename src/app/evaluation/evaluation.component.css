@@ -3,14 +3,11 @@
 }
 
 .continer {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
-    overflow: hidden;
 }
 
 .table-continer {
@@ -30,6 +27,9 @@ td, th {
     /* padding: 40px; */
 }
 
+label {
+    margin: 5px 10px;
+}
 /* Title */
 
 .continer .page-title {

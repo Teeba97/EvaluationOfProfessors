@@ -50,10 +50,18 @@
     <div class="box-operation">
         <button 
             mat-raised-button
-            matTooltip="حذف هذا العنصر"
+            matTooltip="حذف"
             matTooltipPosition="right"
             class="btn-delete btn" (click)="deleteLecturer(item)">
-            <i class="i-delete fas fa-trash-alt fa-1x"></i> <!-- icon -->
+            
+            <i class="i-delete far fa-trash-alt"></i> <!-- icon -->
+        </button>
+
+        <button 
+            mat-raised-button
+            matTooltip="تعديل"
+            class="btn-delete btn" (click)="deleteLecturer(item)">
+            <i class="i-edit far fa-edit"></i>
         </button>
     </div>
 

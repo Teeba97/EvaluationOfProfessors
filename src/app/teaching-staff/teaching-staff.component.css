@@ -66,10 +66,17 @@ h3 {
 
 .btn-delete {
     background-color: transparent !important;
+    padding: 2.5px !important;
+    margin: 10px 5px !important;
 }
 
 .i-delete {
     color: #E23234;
     font-size: 25px;
-    margin: 0;
+}
+
+.i-edit {
+    color: rgb(48, 192, 84);
+    font-size: 25px;
+    margin-left: 10px;
 }

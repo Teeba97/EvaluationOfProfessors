@@ -25,7 +25,7 @@ import { QuestionsService } from './services/questions.service';
 
 // angular material 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatIconModule , MatSnackBarModule , MatTooltipModule ,  } from '@angular/material';
+import { MatIconModule , MatSnackBarModule , MatTooltipModule , MatDialogModule  } from '@angular/material';
 
 
 // Routes
@@ -62,7 +62,8 @@ const routes:Routes = [
     BrowserAnimationsModule,
     MatIconModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
 
   ],
   providers: [

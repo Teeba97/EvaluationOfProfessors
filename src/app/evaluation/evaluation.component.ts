@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionsService } from '../services/questions.service';
 
 @Component({
   selector: 'app-evaluation',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvaluationComponent implements OnInit {
 
-  constructor() { }
+  public questions = [] ;
+
+  constructor( private questionsService:QuestionsService ) { }
 
   ngOnInit() {
+    this.getQuestions()
   }
 
+  getQuestions() {
+    this.questionsService.get()
+      .subscribe ( 
+        data => {
+          this.questions = data;
+        }
+      )
+  }
 }

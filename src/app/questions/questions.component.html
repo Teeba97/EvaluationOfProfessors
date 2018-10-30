@@ -18,7 +18,7 @@
               mat-raised-button
               matTooltip="تأكد من المعلومات قبل الاضافة"
               matTooltipPosition="right"
-              class="btn-delete btn" (click)="addQuestion()">
+              class="my-btn btn" (click)="addQuestion()">
               اضافة
           </button>
       </div>
@@ -26,13 +26,29 @@
 
 
 <div class="box-item" *ngFor="let item of questions">
-  <div class="name">
-    <h3>
-      {{item.question}}
-    </h3>
-  </div>
 
-  <div class="icons">
-    <i class="fas fa-trash-alt fa-2x"></i>
-  </div>
+    <!-- information dispaly hear -->
+    <div class="name">
+    
+         <h3> {{ item.question }} </h3> 
+    </div>
+
+    <div class="box-operation">
+        <button 
+            mat-raised-button
+            matTooltip="حذف"
+            matTooltipPosition="right"
+            class="btn-delete btn" >
+            
+            <i class="i-delete far fa-trash-alt"></i> <!-- icon -->
+        </button>
+
+        <button 
+            mat-raised-button
+            matTooltip="تعديل"
+            class="btn-delete btn">
+            <i class="i-edit far fa-edit"></i>
+        </button>
+    </div>
+
 </div>

@@ -30,33 +30,29 @@
 
           <th width="5%">ت</th>
           <th width="60%">الفقرات</th>
-          <th width="10%">نعم</th>
-          <th width="10%">نوعا ما</th>
-          <th width="10%">لا</th>
+          <th width="10%">الاجوبة</th>
 
         </tr>
       </thead>
+
       <tbody>
-        <tr>
-          <td width="5%">1</td>
-          <td width="60%">السؤال الاول</td>
-          <td width="10%"><input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="1"></td>
-          <td width="10%"><input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="1"></td>
-          <td width="10%"><input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="1"></td>
-        </tr>
-        <tr>
-          <td width="5%">1</td>
-          <td width="60%">السؤال الثاني</td>
-          <td width="10%"><input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2"></td>
-          <td width="10%"><input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2"></td>
-          <td width="10%"><input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2"></td>
-        </tr>
-        <tr>
-          <td width="5%">3</td>
-          <td width="60%">السؤال الثالث</td>
-          <td width="10%"><input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"></td>
-          <td width="10%"><input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"></td>
-          <td width="10%"><input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"></td>
+        <tr *ngFor="let question of questions">
+          <td width="5%"> {{question.id}}  </td>
+          <td width="60%">  {{question.question}}  </td>
+          <td width="35%">
+            <label>
+                <input type="radio" name="{{question.id}}">
+                نعم
+            </label>
+            <label>
+                <input type="radio">
+                نوعاً ما
+            </label>
+            <label>
+                <input type="radio">
+                لا
+            </label>
+          </td>
         </tr>
 
       </tbody>
