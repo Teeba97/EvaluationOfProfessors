@@ -88,7 +88,7 @@ export class QuestionsComponent implements OnInit {
     // else if the user not enter the equstion in the input feild
     } else {
       this.snackBar.open( "قم بكتابة السؤال اولاً" , "تم" , {
-        duration: 2000,
+        duration: 3000,
       });
     }
   }
