@@ -5,22 +5,22 @@
 
 
 
-    <select class="custom-select select-1">
-        <option selected>حدد القسم </option>
-        <option value="1">علوم الحياة</option>
-        <option value="2">علوم الحاسبات</option>
-        <option value="3">علوم رياضيات</option>
-        <option value="4">علوم الفيزياء</option>
-        <option value="5">جيولوجيا</option>
-        <option value="6">تقانة احيائية</option>
+    <select  class="custom-select select-1" (change)="selectDepartment( $event )" >
+        <option value="0">حدد القسم         </option>
+        <option value="1"> بايولوجي        </option>
+        <option value="2"> الحاسبات        </option>
+        <option value="3"> الرياضيات       </option>
+        <option value="4"> الفيزياء        </option>
+        <option value="5"> جيولوجيا النفط والمعادن        </option>
+        <option value="6"> تقانة احيائية   </option>
     </select>
 
-    <select class="custom-select select-1">
-        <option selected>حدد المرحلة</option>
-        <option value="1">الاولى</option>
-        <option value="2">الثانية</option>
-        <option value="3">الثالثة</option>
-        <option value="4">الرابعة</option>
+    <select  class="custom-select select-1" (change)="selectstage( $event )" >
+        <option value="0">  حدد المرحلة     </option>
+        <option value="1">  الاولى           </option>
+        <option value="2">  الثانية         </option>
+        <option value="3">  الثالثة         </option>
+        <option value="4">  الرابعة         </option>
     </select>
 
     <div class="input-group select-1">

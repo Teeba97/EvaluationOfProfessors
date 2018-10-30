@@ -11,16 +11,19 @@ export class KeysService {
   private deleteUrl = "http://localhost/api/login_keys/delete.php";
   private addUrl = "http://localhost/api/login_keys/add.php";
 
-  constructor(private http: HttpClient) { }
-    get(): Observable<Ikeys[]> {
-      return this.http.get<Ikeys[]>( this.getUrl );
-    }
-  
-    delete( lecturer ) {
-      return this.http.post( this.deleteUrl , lecturer );
-    }
-  
-    add( lecturer ) {
-      return this.http.post( this.addUrl , lecturer );
+  constructor(private http: HttpClient) {
+
+  }
+
+  get(): Observable<Ikeys[]> {
+    return this.http.get<Ikeys[]>( this.getUrl );
+  }
+
+  delete( lecturer ) {
+    return this.http.post( this.deleteUrl , lecturer );
+  }
+
+  add( keys ) {
+    return this.http.post( this.addUrl , keys );
   }
 }

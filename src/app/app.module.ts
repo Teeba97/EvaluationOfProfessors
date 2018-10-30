@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 // service
 import { LecturersService } from './services/lecturers.service';
 import { QuestionsService } from './services/questions.service';
+import { KeysService } from './services/keys.service';
 
 // angular material 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -68,7 +69,8 @@ const routes:Routes = [
   ],
   providers: [
     LecturersService,
-    QuestionsService
+    QuestionsService,
+    KeysService
   ],
   bootstrap: [AppComponent]
 })
