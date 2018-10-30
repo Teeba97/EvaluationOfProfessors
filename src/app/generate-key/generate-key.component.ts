@@ -13,7 +13,7 @@ export class GenerateKeyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getRandomNumber(20)
+    
   }
 
 
@@ -27,7 +27,7 @@ export class GenerateKeyComponent implements OnInit {
     while(i<nNumber){
     
       const random = Math.floor(Math.random() * (999999 - 100000)) + 100000;
-      // this.randomKey.push(random)
+      i++;
       console.log(random)
     }
     
