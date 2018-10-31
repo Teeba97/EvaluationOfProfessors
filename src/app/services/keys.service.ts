@@ -15,15 +15,15 @@ export class KeysService {
 
   }
 
-  get(): Observable<Ikeys[]> {
-    return this.http.get<Ikeys[]>( this.getUrl );
+  get( data ): Observable<Ikeys[]> {
+    return this.http.post<Ikeys[]>( this.getUrl , data );
   }
 
-  delete( lecturer ) {
-    return this.http.post( this.deleteUrl , lecturer );
+  delete( key ) {
+    return this.http.post( this.deleteUrl , key );
   }
 
-  add( keys ) {
-    return this.http.post( this.addUrl , keys );
+  add( key ) {
+    return this.http.post( this.addUrl , key );
   }
 }

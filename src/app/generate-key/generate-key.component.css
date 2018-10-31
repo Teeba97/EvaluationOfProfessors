@@ -18,22 +18,38 @@
 }
 
 .my-btn {
-    background-color: #706fd3
+    background-color: #706fd3;
+    color: #FFF !important;
 }
 
 /* main box */
 
-.box-item {
+.box-items {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+}
+
+.item-box{
     display: flex;
     border-radius: 7px;
-    margin: 20px;
-    padding: 10px;
-    justify-content: space-between;
+    margin: 10px;
+    justify-content: center;
     align-items: center;
     align-content: center;
     background-color: #f2f2f1;
     color: #505050;
-    height: max-content;
+    height: 50px;
+    width: 23%;
+    transition: .12s;
+}
+
+.item-box:hover {
+    background-color: #706fd3;
+    color: #FFF !important;
 }
 
 
@@ -63,4 +79,21 @@
 h3 {
     font-size: 16px;
     margin: 0;
+}
+
+.btn-delete {
+    background-color: transparent !important;
+    padding: 2.5px !important;
+    margin: 10px 5px !important;
+}
+
+.i-delete {
+    color: #E23234;
+    font-size: 25px;
+}
+
+.i-edit {
+    color: rgb(48, 192, 84);
+    font-size: 25px;
+    margin-left: 10px;
 }

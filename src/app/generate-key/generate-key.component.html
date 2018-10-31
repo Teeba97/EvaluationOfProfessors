@@ -27,13 +27,40 @@
         <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-default">عدد الرموز</span>
         </div>
-        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        <input  (change)="selectNumber( $event )" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
     </div>
 
-    <a  class="my-btn btn btn-primary select-2" 
+    <a  class="my-btn btn select-2" 
         role="button" style="width: fit-content"
-        (click)="getRandomNumber(10)">
+        (click)="getRandomNumber(numberOfKeys)">
         توليد الرموز
     </a>
 </div>
+
+
+<!-- items  -->
+
+<div class="box-items">
+
+    <div class="item-box" *ngFor="let key of keys">
+
+        <!-- information dispaly hear -->
+        <div class="name">
+        
+             <h3> {{ key.password }} </h3> 
+        </div>
+    
+        <!-- <div class="box-operation">
+            <button 
+                mat-raised-button
+                matTooltip="حذف"
+                matTooltipPosition="right"
+                class="btn-delete btn">
+                <i class="i-delete far fa-trash-alt"></i> 
+            </button>
+        </div> -->
+    
+    </div>
+</div>
+
 
