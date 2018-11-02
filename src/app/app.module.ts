@@ -23,23 +23,34 @@ import { HttpClientModule } from '@angular/common/http';
 import { LecturersService } from './services/lecturers.service';
 import { QuestionsService } from './services/questions.service';
 import { KeysService } from './services/keys.service';
+import { LoginService } from './services/login.service';
+import { EvaluationsService } from './services/evaluations.service';
+
+// Guards 
+import { AuthGuard } from './guards/auth.guard';
 
 // angular material 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatIconModule , MatSnackBarModule , MatTooltipModule , MatDialogModule  } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {  MatIconModule , 
+          MatSnackBarModule , 
+          MatTooltipModule , 
+          MatDialogModule  
+        } from '@angular/material';
 
 
 // Routes
 const routes:Routes = [
-  { path :'' , redirectTo:'login' ,pathMatch:'full'},
-  { path :'login' ,component: LoginComponent},
-  { path :'admin' ,component: AdminComponent },
-  { path :'evalution' ,component: EvaluationComponent },
-  { path :'generateKey' ,component: GenerateKeyComponent },
-  { path :'management' ,component: ManagementComponent },
-  { path :'teachers' ,component: TeachingStaffComponent },
-  { path :'questions' ,component: QuestionsComponent },
-  { path :'**' ,component: LoginComponent }
+
+  { path :''             ,redirectTo:'login' ,pathMatch:'full' },
+  { path :'login'        ,component: LoginComponent },
+  { path :'admin'        ,component: AdminComponent },
+  { path :'evalution'    ,component: EvaluationComponent , canActivate: [AuthGuard] },
+  { path :'generateKey'  ,component: GenerateKeyComponent },
+  { path :'management'   ,component: ManagementComponent },
+  { path :'teachers'     ,component: TeachingStaffComponent },
+  { path :'questions'    ,component: QuestionsComponent },
+  { path :'**'           ,component: LoginComponent }
+
 ]
 
 
@@ -64,13 +75,15 @@ const routes:Routes = [
     MatIconModule,
     MatSnackBarModule,
     MatTooltipModule,
-    MatDialogModule
-
+    MatDialogModule,
   ],
   providers: [
     LecturersService,
     QuestionsService,
-    KeysService
+    KeysService,
+    LoginService,
+    AuthGuard,
+    EvaluationsService
   ],
   bootstrap: [AppComponent]
 })

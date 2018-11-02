@@ -2,16 +2,14 @@
 <div class="continer">
 
 
-    <!-- the title  -->
-    <div class="page-title">
-        <img src="../../assets/SciLogo.png" alt="">
-        <h1>عزيزي الطالب | عزيزتي الطالبة (يرجى الاجابة عن الفقرات الاتية بدقة وموضوعية ولا داعي لذكر الاسم) </h1>
-      </div>
-  <!-- page title
-    <div class="page-title">
-        <h1>عزيزي الطالب | عزيزتي الطالبة (يرجى الاجابة عن الفقرات الاتية بدقة وموضوعية ولا داعي لذكر الاسم) </h1>
-        
-    </div> -->
+  <!-- the title  -->
+  <div class="page-title">
+      <img  class="logo-img" src="../../assets/SciLogo.png" alt="">
+  </div>
+
+  <p class="note">
+    قم بأختيار التدريسي الذي تود تقييمه ومن بعدها اجب عن الاسئلة الموجودة في الاسفل
+  </p>
 
   <!-- dropdown selector -->
   <div class="select-tech">
@@ -20,9 +18,7 @@
         <label class="input-group-text" for="inputGroupSelect01">اسم التدريسي</label>
       </div>
       <select class="custom-select" id="inputGroupSelect01">
-        <option value="AF">علي عبد الرحمن</option>
-        <option value="AX">حازم نومان</option>
-        <option value="AL">غسان اسماعيل</option>
+        <option *ngFor="let lecturer of lecturers" value="{{ lecturer.id }}" (change)="getSlectedLecturer( lecturer.id )">  {{ lecturer.name }} </option>
       </select>
     </div>
   </div>
@@ -43,19 +39,19 @@
 
       <tbody>
         <tr *ngFor="let question of questions">
-          <td width="5%"> {{question.id}}  </td>
+          <td width="5%"> {{ question.id }}  </td>
           <td width="60%">  {{question.question}}  </td>
           <td width="35%">
-            <label>
-                <input type="radio" name="{{question.id}}">
+            <label for="{{question.id}}" class="radio-btn" >
+                <input type="radio" name="{{question.id}}"  value="1" (change)="getAnswer( question.id , 1 )">
                 نعم
             </label>
-            <label>
-                <input type="radio">
+            <label for="{{question.id}}" class="radio-btn">
+                <input type="radio" name="{{question.id}}"  value="2" (change)="getAnswer( question.id , 2 )">
                 نوعاً ما
             </label>
-            <label>
-                <input type="radio">
+            <label for="{{question.id}}" class="radio-btn" >
+                <input type="radio" name="{{question.id}}"  value="3" (change)="getAnswer( question.id , 3 )">
                 لا
             </label>
           </td>
@@ -64,15 +60,15 @@
       </tbody>
     </table>
 
-    <p>
+    <p class="note">
       من فضلك قم باضافة بعض الملاحضات عن الاستاذ ( كًن صريحاً و صادقاً في  ملاحضاتك رجاءً )
     </p>
     
     <textarea id="note" class="form-text form-control "> </textarea>
 
-  <button class="btn btn-primary pull-left" >ارسال التقييم</button>
+  <button class="btn btn-primary pull-left" (click)="countAnswers()" >ارسال التقييم </button>
   </div>
 
-
-
 </div>
+
+<br><br><br><br><br>

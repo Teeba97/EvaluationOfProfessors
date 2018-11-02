@@ -19,20 +19,20 @@
   <!-- the form -->
   <div class="form-continer">
 
-    <form class="ui form ">
       <div class=" item">
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <label class="input-group-text" for="inputGroupSelect01">القـــسم</label>
           </div>
-          <select class="custom-select" id="inputGroupSelect01">
-            <option value="AL">علوم الحياة</option>
-            <option value="AK">علوم الحاسبات</option>
-            <option value="AZ">علوم رياضيات</option>
-            <option value="AR">علوم الفيزياء</option>
-            <option value="IA">جيولوجيا</option>
-            <option value="IA">تقانة احيائية</option>
+          <select  class="custom-select select-1" (change)="setDepartment( $event )" >
+            <option value="0">حدد القسم         </option>
+            <option value="1"> بايولوجي        </option>
+            <option value="2"> الحاسبات        </option>
+            <option value="3"> الرياضيات       </option>
+            <option value="4"> الفيزياء        </option>
+            <option value="5"> جيولوجيا النفط والمعادن        </option>
+            <option value="6"> تقانة احيائية   </option>
           </select>
         </div>
 
@@ -45,29 +45,24 @@
           <div class="input-group-prepend">
             <label class="input-group-text" for="inputGroupSelect01">المرحلة</label>
           </div>
-          <select class="custom-select" id="inputGroupSelect01">
-            <option value="AL">الاولى</option>
-            <option value="AK">الثانية</option>
-            <option value="AZ">الثالثة</option>
-            <option value="AR">الرابعة</option>
+          <select  class="custom-select select-1" (change)="getstage( $event )" >
+            <option value="0">  حدد المرحلة     </option>
+            <option value="1">  الاولى           </option>
+            <option value="2">  الثانية         </option>
+            <option value="3">  الثالثة         </option>
+            <option value="4">  الرابعة         </option>
           </select>
         </div>
 
       </div>
 
       <div class="item">
-        <input class="form-control" type="password" placeholder="كلمة السر">
+        <input (change)="setPassword( $event )" class="form-control" type="password" placeholder="كلمة السر">
       </div>
 
       <div class="bt-item">
-          <a routerLink="/evalution">
-            <button class="btn btn-primary pull-left" >تسجيل الدخول</button>
-          </a>
-       
+          <button (click)="login()" class="btn btn-primary pull-left"> تسجيل الدخول </button>
       </div>
-
-
-    </form>
 
   </div>
 

@@ -45,11 +45,24 @@
 
 .progress span {
     display: block;
-    background-color: #2ecc71;
     color:#FFF;
     line-height: 25px;
     text-align: center;
     font-weight: bold;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.yes {
+    background-color: #2ecc71;
+}
+
+.no {
+    background-color: #ca2c2c;
+}
+
+.some {
+    background-color: #dfd43f;
 }
 
 
