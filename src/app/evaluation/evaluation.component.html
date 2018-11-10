@@ -17,8 +17,9 @@
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect01">اسم التدريسي</label>
       </div>
-      <select class="custom-select" id="inputGroupSelect01">
-        <option *ngFor="let lecturer of lecturers" value="{{ lecturer.id }}" (change)="getSlectedLecturer( lecturer.id )">  {{ lecturer.name }} </option>
+      <select class="custom-select" id="inputGroupSelect01" (change)="getSlectedLecturer( $event )" >
+        <option value="0" >  حدد الأستاذ  </option>
+        <option *ngFor="let lecturer of lecturers" value="{{ lecturer.id }}" >  {{ lecturer.name }} </option>
       </select>
     </div>
   </div>
@@ -66,7 +67,7 @@
     
     <textarea id="note" class="form-text form-control "> </textarea>
 
-  <button class="btn btn-primary pull-left" (click)="countAnswers()" >ارسال التقييم </button>
+  <button class="btn btn-primary pull-left" (click)="submitEvaluation()" >ارسال التقييم </button>
   </div>
 
 </div>

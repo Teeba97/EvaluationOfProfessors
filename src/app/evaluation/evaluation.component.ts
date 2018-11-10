@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { QuestionsService } from '../services/questions.service';
 import { LecturersService } from '../services/lecturers.service';
 import { EvaluationsService } from '../services/evaluations.service';
-import { element } from '@angular/core/src/render3/instructions';
-import { NumberValueAccessor } from '@angular/forms/src/directives';
+
 
 @Component({
   selector: 'app-evaluation',
   templateUrl: './evaluation.component.html',
   styleUrls: ['./evaluation.component.css']
 })
+
 export class EvaluationComponent implements OnInit {
 
   questions = [] ;
@@ -27,6 +27,29 @@ export class EvaluationComponent implements OnInit {
   ngOnInit() {
     this.getQuestions()
     this.getLecturers()
+  }
+
+  // add evaluation to database 
+  submitEvaluation() {
+
+    var answers = this.countAnswers()
+    var info = { 
+      "lecturer_id": this.slectedLecturerId ,
+      "yes": answers.yes ,
+      "some": answers.some , 
+      "no": answers.no
+    }
+
+    console.log(info)
+
+    this.evaluationsService.add(info)
+      .subscribe( data => {
+        if ( data["success"]) {
+          console.log("successfully added..")
+        } else {
+          console.log("faild to add")
+        }
+      })
   }
 
   // get question using question service
@@ -80,6 +103,7 @@ export class EvaluationComponent implements OnInit {
 
   }
 
+
   // count number of yes , no , some in student answers ...
   countAnswers() {
     var yes = 0 ,
@@ -104,8 +128,9 @@ export class EvaluationComponent implements OnInit {
   }
 
   // get id of slected lecturer
-  getSlectedLecturer( id ) {
-    this.slectedLecturerId = id
+  getSlectedLecturer( event ) {
+    this.slectedLecturerId = event.target.value
+    console.log(event.target.value)
   }
 
 }

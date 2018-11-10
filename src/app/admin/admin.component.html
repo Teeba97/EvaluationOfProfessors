@@ -27,7 +27,7 @@
             <div class="input-group-prepend">
               <div class="input-group-text" style="width: 125px" >اسم المستخدم</div>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="">
+            <input (change)="gerUser( $event )" type="text" class="form-control" id="inlineFormInputGroup" placeholder="">
         </div>
       </div>
 
@@ -36,13 +36,13 @@
               <div class="input-group-prepend">
                 <div class="input-group-text"  style="width: 125px" >كــــلمـة الـمــرور</div>
               </div>
-              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="">
+              <input (change)="gerPassword( $event )" type="password" class="form-control" id="inlineFormInputGroup" placeholder="">
           </div>
       </div>
 
       <div class="bt-item">
-          <a routerLink="/management">
-            <button class="btn btn-primary pull-left" >تسجيل الدخول</button>
+          <a>
+            <button (click)="checkLoginInfo()" class="btn btn-primary pull-left" >تسجيل الدخول</button>
           </a>
        
       </div>

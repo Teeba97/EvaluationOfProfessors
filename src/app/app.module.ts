@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
+
 // component
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -17,6 +18,7 @@ import { QuestionsComponent } from './questions/questions.component';
 
 // module
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 // service
@@ -64,7 +66,8 @@ const routes:Routes = [
     GenerateKeyComponent,
     TeachingStaffComponent,
     NavComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    
    
   ],
   imports: [
@@ -76,6 +79,8 @@ const routes:Routes = [
     MatSnackBarModule,
     MatTooltipModule,
     MatDialogModule,
+    FormsModule
+    
   ],
   providers: [
     LecturersService,

@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(  private loginService: LoginService,
-                private router:Router ) {
+                private router: Router ) {
 
   }
 
@@ -39,9 +39,10 @@ export class LoginComponent implements OnInit {
           this.router.navigate(["/evalution"])
 
         } else {                 // if user not found 
-          console.log("Error")
+          window.alert("تأكد من ان كل المعلومات التي ادخلتها صحيحة ")
         }
       })
+      
   }
 
   // get slected department & stage & password data from html page

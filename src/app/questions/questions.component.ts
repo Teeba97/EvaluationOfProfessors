@@ -15,8 +15,6 @@ export class QuestionsComponent implements OnInit {
     question: ''
   }
 
-
-
   constructor(
     private questionsService:QuestionsService,
     public snackBar:MatSnackBar
@@ -35,25 +33,6 @@ export class QuestionsComponent implements OnInit {
         }
       )
   }
-
-  
-  // delete
-  // deleteQuestion(item) {
-  //   console.log(item);
-  //   this.questionsService.delete(item)
-  //     .subscribe ( 
-  //       data => {
-  //         if (data["success"]) {
-  //           this.snackBar.open("تم حذف العنصر بنجاح" , "تم" , {
-  //             duration: 2000,
-  //           });
-  //           this.getQuestions();
-  //         } else {
-  //           window.alert("An error to delete this item ...")
-  //         }
-  //       }
-  //     )
-  // }
 
 
   // add
