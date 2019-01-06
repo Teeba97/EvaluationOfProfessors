@@ -23,13 +23,13 @@ export class TeachingStaffComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getLecturers()
+    
   }
 
 
   // get lecturers
   getLecturers() {
-    this.lecturersService.get()
+    this.lecturersService.get( this.lecturer )
       .subscribe ( 
         data => {
           this.lecturers = data;
@@ -83,10 +83,16 @@ export class TeachingStaffComponent implements OnInit {
   // get slected department & stage & name data from html page
   selectDepartment( event ) {
     this.lecturer.dep_id =  event.target.value
+    if ( this.lecturer.dep_id != 0 && this.lecturer.st_id != 0) {
+      this.getLecturers()
+    }
   }
 
   selectstage( event ) {
     this.lecturer.st_id =  event.target.value
+    if ( this.lecturer.dep_id != 0 && this.lecturer.st_id != 0) {
+      this.getLecturers()
+    }
   }
 
   selectName( event ) {

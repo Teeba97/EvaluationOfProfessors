@@ -11,13 +11,14 @@ export class LecturersService {
   private getUrl = "http://localhost/api/lecturers/select.php";
   private deleteUrl = "http://localhost/api/lecturers/delete.php";
   private addUrl = "http://localhost/api/lecturers/add.php";
-  
+  private getUnEvaluatedUrl = "http://localhost/api/lecturers/evaluation_lec"
+
   constructor( private http: HttpClient ) { 
 
   }
 
-  get(): Observable<Ilecturer[]> {
-    return this.http.get<Ilecturer[]>( this.getUrl );
+  get( info ): Observable<Ilecturer[]> {
+    return this.http.post<Ilecturer[]>( this.getUrl , info );
   }
 
   delete( lecturer ) {
@@ -26,6 +27,10 @@ export class LecturersService {
 
   add( lecturer ) {
     return this.http.post( this.addUrl , lecturer );
+  }
+
+  getUnEvaluatedLec( info ): Observable<Ilecturer[]> {
+    return this.http.post<Ilecturer[]>( this.getUnEvaluatedUrl , info );
   }
 
 }

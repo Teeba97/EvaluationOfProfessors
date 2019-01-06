@@ -10,16 +10,25 @@ export class ManagementComponent implements OnInit {
 
   evaluations = []
 
+  
+  data  = {      // info 
+    dep_id : 0,
+    st_id : 0
+  }
+
+
   constructor( private evaluationsService: EvaluationsService) { }
 
   ngOnInit() {
     this.getEvaluations()
   }
 
+
   // get form data base
   getEvaluations() {
-
-    this.evaluationsService.get()
+    
+    this.evaluations = []
+    this.evaluationsService.get( this.data )
       .subscribe( data => {
 
         data.forEach ( element => {
@@ -43,10 +52,15 @@ export class ManagementComponent implements OnInit {
       })   // subscribe
   }
 
-  getNumberOfEvaluations() {
-    
+  selectDepartment( event ) {
+    this.data.dep_id =  event.target.value
+    this.getEvaluations();
   }
 
+  selectstage( event ) {
+    this.data.st_id =  event.target.value
+    this.getEvaluations();
 
+  }
 
 }

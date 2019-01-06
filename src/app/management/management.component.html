@@ -6,7 +6,7 @@
 
 
 
-    <select class="custom-select select-1">
+    <select class="custom-select select-1" (change)="selectDepartment( $event )">
         <option selected>حدد القسم </option>
         <option value="1">علوم الحياة</option>
         <option value="2">علوم الحاسبات</option>
@@ -16,15 +16,13 @@
         <option value="6">تقانة احيائية</option>
     </select>
 
-    <select class="custom-select select-1">
+    <select class="custom-select select-1" (change)="selectstage( $event )">
         <option selected>حدد المرحلة</option>
         <option value="1">الاولى</option>
         <option value="2">الثانية</option>
         <option value="3">الثالثة</option>
         <option value="4">الرابعة</option>
     </select>
-
-    <a class="my-btn btn btn-primary select-2" href="#" role="button" style="width: 100px">بحث</a>
 </div>
 
 

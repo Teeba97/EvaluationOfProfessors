@@ -36,6 +36,9 @@ export class LoginComponent implements OnInit {
         if ( data["success"] ) {  // if user founded
 
           this.loginService.setLoginState(true)
+          localStorage.setItem( "department" , this.loginInfo.dep_id.toString() )
+          localStorage.setItem( "stage" , this.loginInfo.st_id.toString() )
+          localStorage.setItem( "key" , this.loginInfo.password.toString() )
           this.router.navigate(["/evalution"])
 
         } else {                 // if user not found 

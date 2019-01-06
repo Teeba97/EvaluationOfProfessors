@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-admin',
@@ -12,21 +13,29 @@ export class AdminComponent implements OnInit {
     user: '',
     password: ''
   }
-  constructor(private router:Router) { }
+  constructor(  private router:Router, 
+                private loginService:LoginService ) { }
 
   ngOnInit() {
 
   }
 
   checkLoginInfo() {
-    console.log( this.info.user + " :::: " + this.info.password )
-    if ( this.info.user != '' && this.info.password != '' ) {
-      if (this.info.user == "admin" && this.info.password == "admin" ) {
+    
+    console.log(this.info)
+    this.loginService.loginAdmin( this.info )
+    .subscribe ( data => {
+
+      if ( data["success"] ) {  // if user founded
+
+        this.loginService.setAdminState(true)
+        localStorage.setItem( "admin" , "true" )
         this.router.navigate(["/management"])
+
+      } else {                 // if user not found 
+        window.alert("تأكد من ان كل المعلومات التي ادخلتها صحيحة ")
       }
-    } else { 
-      window.alert("يوجد خطأ في اسم المستخدم او كلمة السر")
-    }
+    })
   }
 
   gerUser( event ) {

@@ -30,6 +30,7 @@ import { EvaluationsService } from './services/evaluations.service';
 
 // Guards 
 import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 // angular material 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -47,10 +48,10 @@ const routes:Routes = [
   { path :'login'        ,component: LoginComponent },
   { path :'admin'        ,component: AdminComponent },
   { path :'evalution'    ,component: EvaluationComponent , canActivate: [AuthGuard] },
-  { path :'generateKey'  ,component: GenerateKeyComponent },
-  { path :'management'   ,component: ManagementComponent },
-  { path :'teachers'     ,component: TeachingStaffComponent },
-  { path :'questions'    ,component: QuestionsComponent },
+  { path :'generateKey'  ,component: GenerateKeyComponent , canActivate: [AdminGuard]},
+  { path :'management'   ,component: ManagementComponent , canActivate: [AdminGuard] },
+  { path :'teachers'     ,component: TeachingStaffComponent , canActivate: [AdminGuard] },
+  { path :'questions'    ,component: QuestionsComponent , canActivate: [AdminGuard] },
   { path :'**'           ,component: LoginComponent }
 
 ]
