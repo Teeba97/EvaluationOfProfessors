@@ -48,8 +48,7 @@ export class EvaluationComponent implements OnInit {
 
     var info = {
       "loginKey" : this.loginKey,
-      "lecID" : this.slectedLecturerId,
-      "stId" : this.data.st_id
+      "lecID" : this.slectedLecturerId
     }
 
     this.evaluationsService.sendEvaluation( info )
@@ -101,13 +100,26 @@ export class EvaluationComponent implements OnInit {
       
       var answer = this.countAnswers();
 
-      var info = {
-        "lecturer_id" : this.slectedLecturerId,
-        "yes" : answer["yes"],
-        "no" : answer["no"],
-        "some" : answer["some"]
+      if ( answer["no"] >= 8 ) {
+
+        var info = {
+          "lecturer_id" : this.slectedLecturerId,
+          "yes" : 0,
+          "no" : 0,
+          "some" : 0
+        }
+
+      } else {
+
+        var info = {
+          "lecturer_id" : this.slectedLecturerId,
+          "yes" : answer["yes"],
+          "no" : answer["no"],
+          "some" : answer["some"]
+        }
+    
       }
-  
+
       this.evaluationsService.add( info )
         .subscribe ( data => {
           if ( data["success"]) {

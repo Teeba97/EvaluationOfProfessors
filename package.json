@@ -30,6 +30,7 @@
     "popper.js": "^1.14.4",
     "random-number": "0.0.9",
     "rxjs": "~6.3.3",
+    "xlsx": "^0.14.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

@@ -11,7 +11,7 @@ export class LecturersService {
   private getUrl = "http://localhost/api/lecturers/select.php";
   private deleteUrl = "http://localhost/api/lecturers/delete.php";
   private addUrl = "http://localhost/api/lecturers/add.php";
-  private getUnEvaluatedUrl = "http://localhost/api/lecturers/evaluation_lec"
+  private getUnEvaluatedUrl = "http://localhost/api/lecturers/evaluation_lec.php"
 
   constructor( private http: HttpClient ) { 
 

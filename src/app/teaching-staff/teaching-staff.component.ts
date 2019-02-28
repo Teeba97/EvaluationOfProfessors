@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LecturersService } from '../services/lecturers.service';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-teaching-staff',
@@ -16,6 +17,8 @@ export class TeachingStaffComponent implements OnInit {
     dep_id: 0,
     st_id: 0
   }
+
+  exlecturers = []
 
   constructor(public lecturersService: LecturersService,
               public snackBar:MatSnackBar) {
@@ -77,6 +80,48 @@ export class TeachingStaffComponent implements OnInit {
           duration: 2000,
         });
     }
+  }
+
+
+  // upload exile file from computer ....
+  UpluadExcilFile(event: any) {
+
+    /* wire up file reader */
+    const target: DataTransfer = <DataTransfer>(event.target);
+    if (target.files.length !== 1) {
+      alert('Cannot use multiple files');
+    }
+
+    const reader: FileReader = new FileReader();
+
+    reader.onload = (e: any) => {
+     
+      /* read workbook */
+      const bstr: string = e.target.result;
+      const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
+
+      /* grab first sheet */
+      const wsname: string = wb.SheetNames[0];
+      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+
+      /* save data */
+      this.exlecturers = XLSX.utils.sheet_to_json(ws, { header: 1 })
+      console.log(this.exlecturers)
+    }
+
+    reader.readAsBinaryString(target.files[0]);
+    
+  }
+
+
+  addFromExcil() {
+
+    this.exlecturers.forEach ( lec => {
+      this.lecturer.name = lec[0]
+      this.addLecturers()
+    })
+
+    alert("تمت اضافة الاساتذة بنجاح")
   }
 
 

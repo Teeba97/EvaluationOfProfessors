@@ -1,6 +1,22 @@
 <app-nav></app-nav>
 
-<p class="top-text"> حدد القسم و المرحلة وقم بكتابة اسم الستاذ لأضافته الى قائمة التقييم </p>
+
+<div>
+
+    <button type="button" class="btn btn-success btn-lg"> 
+        <i class="fas fa-user-plus"></i>
+         اضافة اساتذة
+    </button>
+    
+    <button type="button" class="btn btn-danger btn-lg">
+        عرض الاساتذة
+    </button>
+
+
+</div>
+
+<!-- 
+<p class="top-text"> حدد القسم و المرحلة وقم بكتابة اسم الستاذ لأضافته الى قائمة الاساتذة </p>
 <div class="drop-down">
 
 
@@ -38,10 +54,8 @@
         (click)="addLecturers()"> اضافة </a>
 </div>
 
-<!-- items  -->
 <div class="box-item" *ngFor="let item of lecturers">
 
-    <!-- information dispaly hear -->
     <div class="name">
     
          <h3> {{ item.name }} </h3> 
@@ -54,7 +68,7 @@
             matTooltipPosition="right"
             class="btn-delete btn" (click)="deleteLecturer(item)">
             
-            <i class="i-delete far fa-trash-alt"></i> <!-- icon -->
+            <i class="i-delete far fa-trash-alt"></i>
         </button>
 
         <button 
@@ -66,3 +80,7 @@
     </div>
 
 </div>
+
+
+<input type="file" name="Chose" id="" (change)="UpluadExcilFile($event)">
+<button (click)="addFromExcil()"> add </button> -->
