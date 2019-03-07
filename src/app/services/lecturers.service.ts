@@ -6,6 +6,7 @@ import { Ilecturer } from '../models/lecturers';
 @Injectable({
   providedIn: 'root'
 })
+
 export class LecturersService {
 
   private getUrl = "http://localhost/api/lecturers/select.php";

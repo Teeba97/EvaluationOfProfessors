@@ -1,21 +1,6 @@
 <app-nav></app-nav>
 
 
-<div>
-
-    <button type="button" class="btn btn-success btn-lg"> 
-        <i class="fas fa-user-plus"></i>
-         اضافة اساتذة
-    </button>
-    
-    <button type="button" class="btn btn-danger btn-lg">
-        عرض الاساتذة
-    </button>
-
-
-</div>
-
-<!-- 
 <p class="top-text"> حدد القسم و المرحلة وقم بكتابة اسم الستاذ لأضافته الى قائمة الاساتذة </p>
 <div class="drop-down">
 
@@ -54,33 +39,86 @@
         (click)="addLecturers()"> اضافة </a>
 </div>
 
-<div class="box-item" *ngFor="let item of lecturers">
-
-    <div class="name">
-    
-         <h3> {{ item.name }} </h3> 
-    </div>
-
-    <div class="box-operation">
-        <button 
-            mat-raised-button
-            matTooltip="حذف"
-            matTooltipPosition="right"
-            class="btn-delete btn" (click)="deleteLecturer(item)">
-            
-            <i class="i-delete far fa-trash-alt"></i>
-        </button>
-
-        <button 
-            mat-raised-button
-            matTooltip="تعديل"
-            class="btn-delete btn" (click)="deleteLecturer(item)">
-            <i class="i-edit far fa-edit"></i>
-        </button>
-    </div>
-
+<div *ngIf="!excelView" class="excel">
+    <p class="top-text"> او قم بالاضافة عن طريق ملف أكسل  | &nbsp; </p>
+    <a  class="my-btn2"  
+        style="width: fit-content" 
+        (click)="setView( 'addExcelFile' )">  اضغط هنا   </a>
 </div>
 
+<!-- lecturer.dep_id == 0 || 
+                        lecturer.st_id == 0 || 
+                        lecturers.length == 0 ) 
+                        & excelView == false -->
 
-<input type="file" name="Chose" id="" (change)="UpluadExcilFile($event)">
-<button (click)="addFromExcil()"> add </button> -->
+<ng-container *ngIf="lecturers.length == 0 ; 
+                        then noData else haveData">
+</ng-container>
+
+<ng-template #haveData>
+
+    <div [ngSwitch]="defaultView"> 
+
+        <!-- show lecturers  -->
+        <div *ngSwitchCase="'lecturers'" >
+            <div class="box-item" *ngFor="let item of lecturers">
+                <div class="name">
+                    <h3> {{ item.name }} </h3> 
+                </div>
+        
+                <div class="box-operation">
+                    <button 
+                        mat-raised-button
+                        matTooltip="حذف"
+                        matTooltipPosition="right"
+                        class="btn-delete btn" (click)="deleteLecturer(item)">
+                        
+                        <i class="i-delete far fa-trash-alt"></i>
+                    </button>
+        
+                    <button 
+                        mat-raised-button
+                        matTooltip="تعديل"
+                        class="btn-delete btn" (click)="deleteLecturer(item)">
+                        <i class="i-edit far fa-edit"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+      
+    
+        <!-- add excel file  -->
+        <div *ngSwitchCase="'addExcelFile'">
+            <input type="file" name="Chose" id="" (change)="UpluadExcilFile($event)">
+            <button (click)="addFromExcil()"> add </button> 
+    
+            <div class="box-item" *ngFor="let item of exlecturers">
+                <div class="name">
+                    <h3> {{ item[0] }} </h3> 
+                </div>
+        
+                <div class="box-operation">
+                    <button 
+                        mat-raised-button
+                        matTooltip="حذف"
+                        matTooltipPosition="right"
+                        class="btn-delete btn" (click)="deleteOneFromExcel(item)">
+                        <i class="i-delete far fa-trash-alt"></i>
+                    </button>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #noData>
+
+    <div class="nodata">
+        <i class="fas fa-user-alt-slash fa-7x"></i>
+    </div>
+
+</ng-template>
+
+
+

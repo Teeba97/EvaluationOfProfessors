@@ -2,6 +2,24 @@
     margin-right: 20px;
 }
 
+
+.my-btn2 {
+    color:  #706fd3 !important;
+    cursor: pointer;
+}
+
+.nodata {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 50%;
+
+}
+
+.nodata i {
+    opacity: 50%;
+}
 /* select box */
 
 .drop-down {
@@ -18,6 +36,11 @@
 .my-btn {
     background-color: #706fd3;
     color: #fff !important;
+}
+
+
+.excel {
+    display: flex;
 }
 
 /* main box */
@@ -80,3 +103,5 @@ h3 {
     font-size: 25px;
     margin-left: 10px;
 }
+
+

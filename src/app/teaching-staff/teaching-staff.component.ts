@@ -20,15 +20,22 @@ export class TeachingStaffComponent implements OnInit {
 
   exlecturers = []
 
+  defaultView = "lecturers"
+  excelView = false
+
   constructor(public lecturersService: LecturersService,
               public snackBar:MatSnackBar) {
-    
+                
   }
 
   ngOnInit() {
     
   }
 
+  // set view for ng-switch
+  setView( view:string ) {
+    this.defaultView = view;
+  }
 
   // get lecturers
   getLecturers() {
@@ -113,7 +120,7 @@ export class TeachingStaffComponent implements OnInit {
     
   }
 
-
+  // add the excel file to data base
   addFromExcil() {
 
     this.exlecturers.forEach ( lec => {
@@ -121,7 +128,18 @@ export class TeachingStaffComponent implements OnInit {
       this.addLecturers()
     })
 
-    alert("تمت اضافة الاساتذة بنجاح")
+    this.defaultView = "lecturers"
+    this.excelView = true;
+    this.snackBar.open("تم اضافة جميع الاساتذة بنجاح" , "تم" )
+  }
+
+
+  // delete someone form uploaded excel file ...
+  deleteOneFromExcel( item: any ) {
+    const index: number = this.exlecturers.indexOf(item);
+    if (index !== -1) {
+        this.exlecturers.splice(index, 1);
+    }   
   }
 
 
@@ -131,6 +149,7 @@ export class TeachingStaffComponent implements OnInit {
     if ( this.lecturer.dep_id != 0 && this.lecturer.st_id != 0) {
       this.getLecturers()
     }
+    this.excelView = false;
   }
 
   selectstage( event ) {
@@ -138,6 +157,7 @@ export class TeachingStaffComponent implements OnInit {
     if ( this.lecturer.dep_id != 0 && this.lecturer.st_id != 0) {
       this.getLecturers()
     }
+    this.excelView = false;
   }
 
   selectName( event ) {
