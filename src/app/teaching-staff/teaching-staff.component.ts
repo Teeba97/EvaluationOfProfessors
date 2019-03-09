@@ -34,6 +34,9 @@ export class TeachingStaffComponent implements OnInit {
 
   // set view for ng-switch
   setView( view:string ) {
+    if ( view == "addExcelFile") {
+      this.excelView = true;
+    }
     this.defaultView = view;
   }
 
@@ -149,6 +152,7 @@ export class TeachingStaffComponent implements OnInit {
     if ( this.lecturer.dep_id != 0 && this.lecturer.st_id != 0) {
       this.getLecturers()
     }
+    this.setView( 'lecturers' )
     this.excelView = false;
   }
 
@@ -157,6 +161,7 @@ export class TeachingStaffComponent implements OnInit {
     if ( this.lecturer.dep_id != 0 && this.lecturer.st_id != 0) {
       this.getLecturers()
     }
+    this.setView( 'lecturers' )
     this.excelView = false;
   }
 

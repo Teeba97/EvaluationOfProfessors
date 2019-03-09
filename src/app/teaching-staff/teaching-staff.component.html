@@ -7,7 +7,7 @@
 
 
     <select class="custom-select select-1" (change)="selectDepartment( $event )" >
-        <option value="0">حدد القسم         </option>
+        <option value="0">حدد القسم        </option>
         <option value="1"> بايولوجي        </option>
         <option value="2"> الحاسبات        </option>
         <option value="3"> الرياضيات       </option>
@@ -46,13 +46,8 @@
         (click)="setView( 'addExcelFile' )">  اضغط هنا   </a>
 </div>
 
-<!-- lecturer.dep_id == 0 || 
-                        lecturer.st_id == 0 || 
-                        lecturers.length == 0 ) 
-                        & excelView == false -->
-
-<ng-container *ngIf="lecturers.length == 0 ; 
-                        then noData else haveData">
+<!-- condition of show data form data base or show icone if have no data -->
+<ng-container *ngIf="lecturers.length == 0 && (!excelView); then noData else haveData" >
 </ng-container>
 
 <ng-template #haveData>
@@ -113,11 +108,9 @@
 </ng-template>
 
 <ng-template #noData>
-
     <div class="nodata">
-        <i class="fas fa-user-alt-slash fa-7x"></i>
+        <i class="fab fa-jsfiddle fa-10x"></i>
     </div>
-
 </ng-template>
 
 

@@ -37,30 +37,42 @@
     </a>
 </div>
 
+<!-- condition of show data form data base or show icone if have no data -->
+<ng-container *ngIf="keys.length == 0 ; then noData else haveData" > </ng-container>
 
 <!-- items  -->
 
-<div class="box-items">
+<ng-template #haveData>
 
-    <div class="item-box" *ngFor="let key of keys">
+    <div class="box-items">
 
-        <!-- information dispaly hear -->
-        <div class="name">
+        <div class="item-box" *ngFor="let key of keys">
+    
+            <!-- information dispaly hear -->
+            <div class="name">
+            
+                    <h3> {{ key.password }} </h3> 
+            </div>
         
-             <h3> {{ key.password }} </h3> 
+            <!-- <div class="box-operation">
+                <button 
+                    mat-raised-button
+                    matTooltip="حذف"
+                    matTooltipPosition="right"
+                    class="btn-delete btn">
+                    <i class="i-delete far fa-trash-alt"></i> 
+                </button>
+            </div> -->
+        
         </div>
-    
-        <!-- <div class="box-operation">
-            <button 
-                mat-raised-button
-                matTooltip="حذف"
-                matTooltipPosition="right"
-                class="btn-delete btn">
-                <i class="i-delete far fa-trash-alt"></i> 
-            </button>
-        </div> -->
-    
+    </div>     
+
+</ng-template>
+
+
+<ng-template #noData>
+    <div class="nodata">
+        <i class="fab fa-jsfiddle fa-10x"></i>
     </div>
-</div>
-
-
+</ng-template>
+    

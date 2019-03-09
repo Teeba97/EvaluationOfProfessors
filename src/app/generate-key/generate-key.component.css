@@ -4,6 +4,25 @@
     margin-right: 20px;
 }
 
+
+
+.my-btn2 {
+    color:  #706fd3 !important;
+    cursor: pointer;
+}
+
+.nodata {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 50%;
+
+}
+
+.nodata i {
+    opacity: 0.5 !important ;
+}
 /* select box */
 
 .drop-down {
