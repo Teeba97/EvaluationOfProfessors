@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LecturersService } from '../services/lecturers.service';
 import { MatSnackBar } from '@angular/material';
 import * as XLSX from 'xlsx';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-teaching-staff',
@@ -11,20 +13,25 @@ import * as XLSX from 'xlsx';
 export class TeachingStaffComponent implements OnInit {
 
   public lecturers = [] ;
-
+  exlecturers = []
   lecturer = {
     name: '',
     dep_id: 0,
     st_id: 0
   }
 
-  exlecturers = []
+  newLecName = {
+    id: 0,
+    name: ''
+  }
+  
 
   defaultView = "lecturers"
   excelView = false
 
   constructor(public lecturersService: LecturersService,
-              public snackBar:MatSnackBar) {
+              public snackBar:MatSnackBar,
+              public modalService:NgbModal ) {
                 
   }
 
@@ -39,6 +46,7 @@ export class TeachingStaffComponent implements OnInit {
     }
     this.defaultView = view;
   }
+
 
   // get lecturers
   getLecturers() {
@@ -132,7 +140,7 @@ export class TeachingStaffComponent implements OnInit {
     })
 
     this.defaultView = "lecturers"
-    this.excelView = true;
+    this.excelView = false;
     this.snackBar.open("تم اضافة جميع الاساتذة بنجاح" , "تم" )
   }
 
@@ -146,15 +154,19 @@ export class TeachingStaffComponent implements OnInit {
   }
 
 
+
   // get slected department & stage & name data from html page
   selectDepartment( event ) {
     this.lecturer.dep_id =  event.target.value
     if ( this.lecturer.dep_id != 0 && this.lecturer.st_id != 0) {
       this.getLecturers()
+    } else {
+      this.lecturers = []
     }
     this.setView( 'lecturers' )
     this.excelView = false;
   }
+
 
   selectstage( event ) {
     this.lecturer.st_id =  event.target.value
@@ -165,8 +177,48 @@ export class TeachingStaffComponent implements OnInit {
     this.excelView = false;
   }
 
+  editName() {
+    this.lecturersService.edit(this.newLecName)
+      .subscribe( data => {
+        if (data["success"]) {
+          window.alert("تم تعديل الاسم بنجاح")
+          this.getLecturers();
+        } else {
+          window.alert("حدث خطأ ما، تأكد من اتصال الانترنت لديك")
+        }
+      })
+  }
+
+  chengeName(event) {
+    this.newLecName.name = event.target.value
+  }
+
+
   selectName( event ) {
     this.lecturer.name =  event.target.value
+  }
+
+
+  openBackDropCustomClass(content) {
+    this.modalService.open(content, { backdropClass: 'light-blue-backdrop' });
+  }
+
+  openWindowCustomClass(content) {
+    this.modalService.open(content, { windowClass: 'dark-modal' });
+  }
+
+  openSm(content) {
+    this.modalService.open(content, { size: 'sm' });
+  }
+
+  openLg(content, id, name) {
+    this.newLecName.id = id
+    this.newLecName.name = name
+    this.modalService.open(content, { size: 'lg' });
+  }
+
+  openVerticallyCentered(content) {
+    this.modalService.open(content, { centered: true });
   }
 
 

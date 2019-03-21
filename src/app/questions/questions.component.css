@@ -1,84 +1,209 @@
 .top-text {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
+
+.my-btn2 {
+  color:  #706fd3 !important;
+  cursor: pointer;
+}
+
+.nodata {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  height: 50%;
+
+}
+
+.nodata i {
+  opacity: 0.5 !important ;
+}
 /* select box */
 
 .drop-down {
-    display: flex;
-    border-radius: 30px;
-    margin: 20px;
+  display: flex;
+  border-radius: 30px;
+  margin: 20px;
 }
 
 .select-1 {
-    width: 30%;
-    margin-left: 20px;
+  width: 60%;
+  margin-left: 20px;
 }
 
 .my-btn {
-    background-color: #706fd3;
-    color: #FFF;
+  background-color: #706fd3 !important;
+  color: #fff !important;
 }
 
-/* main box */
+
+.excel {
+  display: flex;
+}
 
 /* main box */
 
 .box-item {
-    display: flex;
-    border-radius: 7px;
-    margin: 20px;
-    padding-right: 15px;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    background-color: #f2f2f1;
-    color: #505050;
-    height: max-content;
+  display: flex;
+  border-radius: 7px;
+  margin: 20px;
+  padding-right: 15px;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  background-color: #f2f2f1;
+  color: #505050;
+  height: max-content;
 }
 
 
 .progress {
-    height: fit-content;
-    width: 30%;
-    background-color: #f2f2f1;
-    display: flex;
-    flex-direction: column;
+  height: fit-content;
+  width: 30%;
+  background-color: #f2f2f1;
+  display: flex;
+  flex-direction: column;
 }
 
 .progress span {
-    display: block;
-    background-color: #2ecc71;
-    color:#FFF;
-    line-height: 25px;
-    text-align: center;
-    font-weight: bold;
+  display: block;
+  background-color: #2ecc71;
+  color:#FFF;
+  line-height: 25px;
+  text-align: center;
+  font-weight: bold;
 }
 
 
 .progress  P {
-    margin: 5px 0 0 0;
-    font-weight: 500;
+  margin: 5px 0 0 0;
+  font-weight: 500;
 }
 
 h3 {
-    font-size: 16px;
-    margin: 0;
+  font-size: 16px;
+  margin: 0;
 }
 
 .btn-delete {
-    background-color: transparent !important;
-    padding: 2.5px !important;
-    margin: 10px 5px !important;
+  background-color: transparent !important;
+  padding: 2.5px !important;
+  margin: 10px 5px !important;
 }
 
 .i-delete {
-    color: #E23234;
-    font-size: 25px;
+  color: #E23234;
+  font-size: 25px;
 }
 
 .i-edit {
-    color: rgb(48, 192, 84);
-    font-size: 25px;
-    margin-left: 10px;
+  color: rgb(48, 192, 84);
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+
+.container-contact100 {
+  width: 100%;  
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.wrap-contact100 {
+ width: 80%;
+  background: #fff;
+  border-radius: 2px;
+  position: relative;
+}
+
+.contact100-form {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact100-form-title {
+  display: block;
+  width: 100%;
+  font-family: Raleway-Black;
+  font-size: 30px;
+  color: #333333;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: left;
+  padding-bottom: 32px;
+}
+
+
+.wrap-input100 {
+  width: 100%;
+  position: relative;
+  background-color: transparent;
+  margin-bottom: 35px;
+}
+
+
+.label-input100 {
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.5;
+}
+
+.input100 {
+  display: block;
+  width: 100%;
+  background: #f2f2f2;
+  border-radius: 2px;
+
+  font-size: 20px;
+  color: #686868;
+
+  padding: 0 28px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  margin-top: 10px;
+  outline: none;
+  border: none;  
+}
+
+
+input.input100 {
+  height: 62px;
+}
+
+.input100:focus {
+  background: #e6e6e6;
+}
+
+.modal-footer{
+    float: left;
+}
+
+/* add form excel */
+
+.AddFromExcel {
+  padding: 20px;
+  
 }

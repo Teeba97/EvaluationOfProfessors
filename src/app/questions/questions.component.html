@@ -1,7 +1,12 @@
 <app-nav></app-nav>
 
-<p class="top-text"> قم بأضافة وحذف اسئلة التقييم </p>
-<div class="drop-down">
+<ng-container *ngIf="!addFormExcelViwe; then ShowQuestion; else AddFromExcel"></ng-container>
+
+
+<ng-template #ShowQuestion>
+
+  <p class="top-text"> قم بأضافة وحذف اسئلة التقييم </p>
+  <div class="drop-down">
 
   <div class="input-group select-1">
     <div class="input-group-prepend">
@@ -13,17 +18,26 @@
             aria-describedby="inputGroup-sizing-default">
   </div>
 
-      <div class="box-operation">
-          <button 
-              mat-raised-button
-              matTooltip="تأكد من المعلومات قبل الاضافة"
-              matTooltipPosition="right"
-              class="my-btn btn" (click)="addQuestion()">
-              اضافة
-          </button>
-      </div>
+  <div class="box-operation">
+      <button 
+          mat-raised-button
+          matTooltip="تأكد من المعلومات قبل الاضافة"
+          matTooltipPosition="right"
+          class="my-btn btn" 
+          (click)="addQuestion()">
+          اضافة
+      </button>
+  </div>
+  
 </div>
 
+
+<div *ngIf="!addFormExcelViwe" class="excel">
+    <p class="top-text"> او قم بالاضافة عن طريق ملف أكسل  | &nbsp; </p>
+    <a  class="my-btn2"  
+        style="width: fit-content" 
+        (click)="setView('AddFromExcel')">  اضغط هنا   </a>
+</div>
 
 <div class="box-item" *ngFor="let item of questions">
 
@@ -38,17 +52,100 @@
             mat-raised-button
             matTooltip="حذف"
             matTooltipPosition="right"
+            (click)="deleteQuestion(item)"
             class="btn-delete btn" >
-            
             <i class="i-delete far fa-trash-alt"></i> <!-- icon -->
         </button>
 
         <button 
             mat-raised-button
             matTooltip="تعديل"
+            (click)="openLg( content, item.id, item.question )"
             class="btn-delete btn">
             <i class="i-edit far fa-edit"></i>
         </button>
     </div>
 
 </div>
+
+</ng-template>
+
+
+<!-- add form excel template -->
+<ng-template #AddFromExcel > 
+  <div class="AddFromExcel">
+
+      <div class="input-group">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile04" (change)="UpluadExcilFile($event)">
+            <label class="custom-file-label" for="inputGroupFile04">قم بأختيار الملف من حاسوبك</label>
+          </div>
+          <div class="input-group-append">
+            <button class="my-btn btn" type="button" (click)="addFromExcil()"> اضافة الجميع </button>
+          </div>
+      </div>
+
+  </div>
+  <div class="box-item" *ngFor="let item of exQuestions">
+    <div class="name">
+        <h3> {{ item[0] }} </h3> 
+    </div>
+    <div class="box-operation">
+        <button 
+            mat-raised-button
+            matTooltip="حذف"
+            matTooltipPosition="right"
+            class="btn-delete btn" (click)="deleteOneFromExcel(item)">
+            <i class="i-delete far fa-trash-alt"></i>
+        </button>
+    </div>
+  </div>
+
+
+</ng-template>
+
+
+
+<!-- Bootstrap -->
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title"> تعديل الاسئلة </h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container-contact100">
+        <div class="wrap-contact100">
+          <form class="contact100-form">
+            <div class="wrap-input100">
+              <span class="label-input100"> السؤال بعد التعديل </span>
+              <input    class="input100" 
+                        type="text" name="web" 
+                        id="questions" 
+                        value="{{newQuestion.question}}"
+                        (change)="chengeQuestion($event)"
+                >
+            </div>
+          </form>
+
+          <div class="modal-footer">
+            
+            <button type="button" class="btn btn-light" id="close_modal"
+              (click)="modal.close('Close click')" ngbTooltip="الغاء التعديل">الغاء</button>
+
+            <button type="button" class="btn btn-success" ngbTooltip="حفظ التعديلات" (click)="editQuestion()" > 
+                <i class="save icon"> </i>
+              حفظ
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </ng-template>
+

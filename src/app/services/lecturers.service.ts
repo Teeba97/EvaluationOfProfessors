@@ -13,7 +13,7 @@ export class LecturersService {
   private deleteUrl = "http://localhost/api/lecturers/delete.php";
   private addUrl = "http://localhost/api/lecturers/add.php";
   private getUnEvaluatedUrl = "http://localhost/api/lecturers/evaluation_lec.php"
-
+  private editUrl = "http://localhost/api/lecturers/edit.php"
   constructor( private http: HttpClient ) { 
 
   }
@@ -34,4 +34,7 @@ export class LecturersService {
     return this.http.post<Ilecturer[]>( this.getUnEvaluatedUrl , info );
   }
 
+  edit( lecturer ) {
+    return this.http.post( this.editUrl , lecturer );
+  }
 }

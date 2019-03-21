@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EvaluationsService } from '../services/evaluations.service';
-
+import { QuestionsService } from '../services/questions.service';
 @Component({
   selector: 'app-management',
   templateUrl: './management.component.html',
@@ -9,15 +9,24 @@ import { EvaluationsService } from '../services/evaluations.service';
 export class ManagementComponent implements OnInit {
 
   evaluations = []
-
   
   data  = {      // info 
     dep_id : 0,
     st_id : 0
   }
 
+  num_of_q = 0
+  counter_of_q = 0
 
-  constructor( private evaluationsService: EvaluationsService) { }
+  constructor( private evaluationsService: EvaluationsService,
+    private questionsService:QuestionsService) {
+      this.questionsService.getNumOfQ()
+        .subscribe ( data => {
+
+          this.num_of_q = data[0]['counter']
+          console.log(this.num_of_q)
+        })
+   }
 
   ngOnInit() {
     this.getEvaluations()
@@ -28,13 +37,14 @@ export class ManagementComponent implements OnInit {
   getEvaluations() {
     
     this.evaluations = []
+    
     this.evaluationsService.get( this.data )
       .subscribe( data => {
 
         data.forEach ( element => {
           
           // get number of question 
-          var sum = element["counter"] * 12;
+          var sum = element["counter"] * this.num_of_q;
 
           var finalEvaluation = {
             "id" : element["id"] ,

@@ -24,14 +24,14 @@
         <option value="4">  الرابعة         </option>
     </select>
 
-    <div class="input-group select-1">
+    <div *ngIf="!excelView" class="input-group select-1">
         <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-default"> اسم الاستاذ </span>
         </div>
         <input (change)="selectName( $event )" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
     </div>
 
-    <a  class="my-btn btn btn-primary select-2" 
+    <a *ngIf="!excelView" class="my-btn btn btn-primary select-2" 
         role="button" 
         style="width: fit-content" 
         mat-raised-button
@@ -67,14 +67,13 @@
                         matTooltip="حذف"
                         matTooltipPosition="right"
                         class="btn-delete btn" (click)="deleteLecturer(item)">
-                        
                         <i class="i-delete far fa-trash-alt"></i>
                     </button>
         
                     <button 
                         mat-raised-button
                         matTooltip="تعديل"
-                        class="btn-delete btn" (click)="deleteLecturer(item)">
+                        class="btn-delete btn" (click)="openLg( content, item.id, item.name )">
                         <i class="i-edit far fa-edit"></i>
                     </button>
                 </div>
@@ -84,14 +83,24 @@
     
         <!-- add excel file  -->
         <div *ngSwitchCase="'addExcelFile'">
-            <input type="file" name="Chose" id="" (change)="UpluadExcilFile($event)">
-            <button (click)="addFromExcil()"> add </button> 
-    
+            <div class="AddFromExcel">
+
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile04" (change)="UpluadExcilFile($event)">
+                        <label class="custom-file-label" for="inputGroupFile04">قم بأختيار الملف من حاسوبك</label>
+                    </div>
+                    <div class="input-group-append">
+                        <button class="my-btn btn" type="button" (click)="addFromExcil()"> اضافة الجميع </button>
+                    </div>
+                </div>
+            
+            </div>
             <div class="box-item" *ngFor="let item of exlecturers">
                 <div class="name">
                     <h3> {{ item[0] }} </h3> 
                 </div>
-        
+            
                 <div class="box-operation">
                     <button 
                         mat-raised-button
@@ -100,7 +109,6 @@
                         class="btn-delete btn" (click)="deleteOneFromExcel(item)">
                         <i class="i-delete far fa-trash-alt"></i>
                     </button>
-    
                 </div>
             </div>
         </div>
@@ -114,4 +122,45 @@
 </ng-template>
 
 
+<!-- Bootstrap -->
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">تعديل اسم الاستاذ</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container-contact100">
+        <div class="wrap-contact100">
+          <form class="contact100-form">
+            <div class="wrap-input100">
+              <span class="label-input100">اسم الاستاذ الجديد</span>
+              <input    class="input100" 
+                        type="text" name="web" 
+                        id="questions" 
+                        value="{{newLecName.name}}"
+                        (change)="chengeName($event)"
+                >
+            </div>
+          </form>
 
+          <div class="modal-footer">
+            
+            <button type="button" class="btn btn-light" id="close_modal"
+              (click)="modal.close('Close click')" ngbTooltip="الغاء التعديل">الغاء</button>
+
+            <button type="button" class="btn btn-success" ngbTooltip="حفظ التعديلات" (click)="editName()" > 
+                <i class="save icon"> </i>
+              حفظ
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </ng-template>

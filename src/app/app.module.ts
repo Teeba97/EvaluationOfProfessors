@@ -15,11 +15,13 @@ import { TeachingStaffComponent } from './teaching-staff/teaching-staff.componen
 import { NavComponent } from './nav/nav.component';
 import { QuestionsComponent } from './questions/questions.component';
 
+//ng bootstrap
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 // module
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
 
 // service
 import { LecturersService } from './services/lecturers.service';
@@ -80,7 +82,8 @@ const routes:Routes = [
     MatSnackBarModule,
     MatTooltipModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    NgbModule
     
   ],
   providers: [

@@ -54,7 +54,7 @@ export class EvaluationComponent implements OnInit {
     this.evaluationsService.sendEvaluation( info )
       .subscribe ( data => {
         if ( data["success"] ) {
-          console.log("Seccessful Send Evaluaion")
+          window.alert("تم تقييم الاستاذ بنجاح")
         } else {       
           console.log("Not Seccessful Send Evaluaion")
         }
@@ -63,7 +63,6 @@ export class EvaluationComponent implements OnInit {
 
   // set department & stage & login Key ...
   setData() {
-
     this.data.dep_id  = Number(localStorage.getItem("department"));
     this.data.st_id   = Number(localStorage.getItem("stage"));
     this.loginKey     = Number(localStorage.getItem("key"));
@@ -76,25 +75,6 @@ export class EvaluationComponent implements OnInit {
   submitEvaluation() {
 
     var check = 0 
-
-    // this.answers.forEach ( answer => {
-      
-    //   var info = {
-    //     "lecturer_id" : this.slectedLecturerId,
-    //     "q_id" : answer["question"] ,
-    //     "answer" : answer["answer"]
-    //   }
-
-    //   this.evaluationsService.add( info )
-    //     .subscribe ( data => {
-    //       if ( data["success"]) {
-    //         check = 1
-    //         console.log("seccessful")
-    //       } else {
-    //         window.alert("حدث خطأ ما .")
-    //       }
-    //     })
-    // })
 
     if ( this.slectedLecturerId != 0 ) {
       
@@ -130,7 +110,8 @@ export class EvaluationComponent implements OnInit {
           }
         })
   
-      var info2 = {
+      
+        var info2 = {
         "loginKey" : this.loginKey,
         "depId" : this.data.dep_id,
         "stId" : this.data.st_id
@@ -139,13 +120,17 @@ export class EvaluationComponent implements OnInit {
       if ( check = 1 ) {  // if data submited correctly
   
         this.sendKey()    // send key to evalution done
-  
+        
         // check number of lecturers evaluated to remove the login key after evaluate lastest lec.
         if ( this.lecturers.length == 1 ) {
           this.removeLoginKey(info2)
         }
+
         this.slectedLecturerId = 0
-        this.getLecturers()
+
+        setTimeout(() => {
+          this.getLecturers();
+        }, 100);
         
       } else {
         window.alert("حدث خطأ ما .")
@@ -170,6 +155,7 @@ export class EvaluationComponent implements OnInit {
   // get lecturers using lecturers service
   getLecturers() {
 
+    this.lecturers = [];
     const info = {
       "loginKey" : this.loginKey,
       "depId" : this.data.dep_id,
